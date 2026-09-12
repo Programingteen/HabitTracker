@@ -1,0 +1,2 @@
+"use client";
+export default function DashboardError({ reset }: { error: Error; reset: () => void }) { return <div className="mx-auto max-w-xl px-5 py-24 text-center"><h1 className="text-2xl font-semibold tracking-tight">We couldn’t load your dashboard</h1><p className="mt-3 text-sm text-zinc-500">Your data was not replaced with estimates. Check your connection and try again.</p><button type="button" onClick={reset} className="mt-6 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white">Try again</button></div>; }
