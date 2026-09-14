@@ -1,3 +1,5 @@
+import { dateAtOffset } from "./data-utils";
+
 export type DailyCompletion = {
   date: string;
   completed: number;
@@ -5,15 +7,6 @@ export type DailyCompletion = {
 };
 
 const DAY_MS = 86_400_000;
-
-function dateAtOffset(date: string, offset: number) {
-  const [year, month, day] = date.split("-").map(Number);
-  return new Date(Date.UTC(year, month - 1, day + offset)).toISOString().slice(0, 10);
-}
-
-export function percent(completed: number, total: number) {
-  return total === 0 ? 0 : Math.round((completed / total) * 100);
-}
 
 /**
  * A streak counts successful days. A single missed day is a grace day; two
@@ -67,21 +60,6 @@ export function mondayFor(date: string) {
   const [year, month, day] = date.split("-").map(Number);
   const weekday = new Date(Date.UTC(year, month - 1, day)).getUTCDay();
   return dateAtOffset(date, weekday === 0 ? -6 : 1 - weekday);
-}
-
-export function previousDate(date: string, days: number) {
-  return dateAtOffset(date, -days);
-}
-
-export function dateRange(start: string, length: number) {
-  return Array.from({ length }, (_, index) => dateAtOffset(start, index));
-}
-
-export function weekdayLabel(date: string) {
-  const [year, month, day] = date.split("-").map(Number);
-  return new Intl.DateTimeFormat("en", { weekday: "short", timeZone: "UTC" }).format(
-    new Date(Date.UTC(year, month - 1, day))
-  );
 }
 
 export const DAY_IN_MILLISECONDS = DAY_MS;

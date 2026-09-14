@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
-import { dateRange, getStreaks, mondayFor, percent, previousDate, weekdayLabel } from "./metrics";
+import { getStreaks, mondayFor } from "./metrics";
+import { dateRange, percent, previousDate, safeDate, safeTimeZone, weekdayLabel } from "./data-utils";
 
 type GoalRow = { id: string; name: string; position: number; created_at: string };
 type LogRow = { goal_id: string; date: string; value: number | string };
@@ -17,34 +18,6 @@ export type DashboardData = {
   weekDays: Array<{ date: string; label: string; completed: number; total: number }>;
   insight: { current: number; difference: number } | null;
 };
-
-function getDateParts(timeZone: string) {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(new Date());
-  const get = (type: string) => parts.find((part) => part.type === type)?.value;
-  return `${get("year")}-${get("month")}-${get("day")}`;
-}
-
-function safeDate(timeZone: string | null) {
-  try {
-    return getDateParts(timeZone || "UTC");
-  } catch {
-    return getDateParts("UTC");
-  }
-}
-
-function safeTimeZone(timeZone: string | null) {
-  try {
-    Intl.DateTimeFormat("en", { timeZone: timeZone || "UTC" });
-    return timeZone || "UTC";
-  } catch {
-    return "UTC";
-  }
-}
 
 export async function getDashboardData(): Promise<DashboardData> {
   const supabase = await createClient();

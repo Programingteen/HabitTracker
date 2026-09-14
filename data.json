@@ -1,62 +1,52 @@
 [
   {
-    "table_name": "goal_logs",
+    "table_schema": "auth",
+    "table_name": "audit_log_entries",
     "ordinal_position": 1,
+    "column_name": "instance_id",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "audit_log_entries",
+    "ordinal_position": 2,
     "column_name": "id",
     "data_type": "uuid",
     "is_nullable": "NO",
-    "column_default": "gen_random_uuid()"
-  },
-  {
-    "table_name": "goal_logs",
-    "ordinal_position": 2,
-    "column_name": "goal_id",
-    "data_type": "uuid",
-    "is_nullable": "NO",
     "column_default": null
   },
   {
-    "table_name": "goal_logs",
+    "table_schema": "auth",
+    "table_name": "audit_log_entries",
     "ordinal_position": 3,
-    "column_name": "user_id",
-    "data_type": "uuid",
-    "is_nullable": "NO",
+    "column_name": "payload",
+    "data_type": "json",
+    "is_nullable": "YES",
     "column_default": null
   },
   {
-    "table_name": "goal_logs",
+    "table_schema": "auth",
+    "table_name": "audit_log_entries",
     "ordinal_position": 4,
-    "column_name": "date",
-    "data_type": "date",
-    "is_nullable": "NO",
-    "column_default": null
-  },
-  {
-    "table_name": "goal_logs",
-    "ordinal_position": 5,
-    "column_name": "value",
-    "data_type": "numeric",
-    "is_nullable": "NO",
-    "column_default": "0"
-  },
-  {
-    "table_name": "goal_logs",
-    "ordinal_position": 6,
     "column_name": "created_at",
     "data_type": "timestamp with time zone",
-    "is_nullable": "NO",
-    "column_default": "now()"
+    "is_nullable": "YES",
+    "column_default": null
   },
   {
-    "table_name": "goal_logs",
-    "ordinal_position": 7,
-    "column_name": "updated_at",
-    "data_type": "timestamp with time zone",
+    "table_schema": "auth",
+    "table_name": "audit_log_entries",
+    "ordinal_position": 5,
+    "column_name": "ip_address",
+    "data_type": "character varying",
     "is_nullable": "NO",
-    "column_default": "now()"
+    "column_default": "''::character varying"
   },
   {
-    "table_name": "goals",
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
     "ordinal_position": 1,
     "column_name": "id",
     "data_type": "uuid",
@@ -64,55 +54,224 @@
     "column_default": "gen_random_uuid()"
   },
   {
-    "table_name": "goals",
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
     "ordinal_position": 2,
-    "column_name": "user_id",
-    "data_type": "uuid",
+    "column_name": "provider_type",
+    "data_type": "text",
     "is_nullable": "NO",
     "column_default": null
   },
   {
-    "table_name": "goals",
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
     "ordinal_position": 3,
+    "column_name": "identifier",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 4,
     "column_name": "name",
     "data_type": "text",
     "is_nullable": "NO",
     "column_default": null
   },
   {
-    "table_name": "goals",
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 5,
+    "column_name": "client_id",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 6,
+    "column_name": "client_secret",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
     "ordinal_position": 7,
-    "column_name": "active",
+    "column_name": "acceptable_client_ids",
+    "data_type": "ARRAY",
+    "is_nullable": "NO",
+    "column_default": "'{}'::text[]"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 8,
+    "column_name": "scopes",
+    "data_type": "ARRAY",
+    "is_nullable": "NO",
+    "column_default": "'{}'::text[]"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 9,
+    "column_name": "pkce_enabled",
     "data_type": "boolean",
     "is_nullable": "NO",
     "column_default": "true"
   },
   {
-    "table_name": "goals",
-    "ordinal_position": 8,
-    "column_name": "position",
-    "data_type": "integer",
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 10,
+    "column_name": "attribute_mapping",
+    "data_type": "jsonb",
     "is_nullable": "NO",
-    "column_default": "0"
+    "column_default": "'{}'::jsonb"
   },
   {
-    "table_name": "goals",
-    "ordinal_position": 9,
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 11,
+    "column_name": "authorization_params",
+    "data_type": "jsonb",
+    "is_nullable": "NO",
+    "column_default": "'{}'::jsonb"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 12,
+    "column_name": "enabled",
+    "data_type": "boolean",
+    "is_nullable": "NO",
+    "column_default": "true"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 13,
+    "column_name": "email_optional",
+    "data_type": "boolean",
+    "is_nullable": "NO",
+    "column_default": "false"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 14,
+    "column_name": "issuer",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 15,
+    "column_name": "discovery_url",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 16,
+    "column_name": "skip_nonce_check",
+    "data_type": "boolean",
+    "is_nullable": "NO",
+    "column_default": "false"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 17,
+    "column_name": "cached_discovery",
+    "data_type": "jsonb",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 18,
+    "column_name": "discovery_cached_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 19,
+    "column_name": "authorization_url",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 20,
+    "column_name": "token_url",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 21,
+    "column_name": "userinfo_url",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 22,
+    "column_name": "jwks_uri",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 23,
     "column_name": "created_at",
     "data_type": "timestamp with time zone",
     "is_nullable": "NO",
     "column_default": "now()"
   },
   {
-    "table_name": "goals",
-    "ordinal_position": 10,
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 24,
     "column_name": "updated_at",
     "data_type": "timestamp with time zone",
     "is_nullable": "NO",
     "column_default": "now()"
   },
   {
-    "table_name": "profiles",
+    "table_schema": "auth",
+    "table_name": "custom_oauth_providers",
+    "ordinal_position": 25,
+    "column_name": "custom_claims_allowlist",
+    "data_type": "ARRAY",
+    "is_nullable": "NO",
+    "column_default": "'{}'::text[]"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
     "ordinal_position": 1,
     "column_name": "id",
     "data_type": "uuid",
@@ -120,43 +279,624 @@
     "column_default": null
   },
   {
-    "table_name": "profiles",
+    "table_schema": "auth",
+    "table_name": "flow_state",
     "ordinal_position": 2,
-    "column_name": "name",
+    "column_name": "user_id",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 3,
+    "column_name": "auth_code",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 4,
+    "column_name": "code_challenge_method",
+    "data_type": "USER-DEFINED",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 5,
+    "column_name": "code_challenge",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 6,
+    "column_name": "provider_type",
     "data_type": "text",
     "is_nullable": "NO",
     "column_default": null
   },
   {
-    "table_name": "profiles",
-    "ordinal_position": 3,
-    "column_name": "timezone",
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 7,
+    "column_name": "provider_access_token",
     "data_type": "text",
-    "is_nullable": "NO",
-    "column_default": "'UTC'::text"
+    "is_nullable": "YES",
+    "column_default": null
   },
   {
-    "table_name": "profiles",
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 8,
+    "column_name": "provider_refresh_token",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 9,
+    "column_name": "created_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 10,
+    "column_name": "updated_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 11,
+    "column_name": "authentication_method",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 12,
+    "column_name": "auth_code_issued_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 13,
+    "column_name": "invite_token",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 14,
+    "column_name": "referrer",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 15,
+    "column_name": "oauth_client_state_id",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 16,
+    "column_name": "linking_target_id",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "flow_state",
+    "ordinal_position": 17,
+    "column_name": "email_optional",
+    "data_type": "boolean",
+    "is_nullable": "NO",
+    "column_default": "false"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 1,
+    "column_name": "provider_id",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 2,
+    "column_name": "user_id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 3,
+    "column_name": "identity_data",
+    "data_type": "jsonb",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
     "ordinal_position": 4,
+    "column_name": "provider",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 5,
+    "column_name": "last_sign_in_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 6,
+    "column_name": "created_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 7,
+    "column_name": "updated_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 8,
+    "column_name": "email",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "identities",
+    "ordinal_position": 9,
+    "column_name": "id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "instances",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "instances",
+    "ordinal_position": 2,
+    "column_name": "uuid",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "instances",
+    "ordinal_position": 3,
+    "column_name": "raw_base_config",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "instances",
+    "ordinal_position": 4,
+    "column_name": "created_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "instances",
+    "ordinal_position": 5,
+    "column_name": "updated_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_amr_claims",
+    "ordinal_position": 1,
+    "column_name": "session_id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_amr_claims",
+    "ordinal_position": 2,
+    "column_name": "created_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_amr_claims",
+    "ordinal_position": 3,
+    "column_name": "updated_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_amr_claims",
+    "ordinal_position": 4,
+    "column_name": "authentication_method",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_amr_claims",
+    "ordinal_position": 5,
+    "column_name": "id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 2,
+    "column_name": "factor_id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 3,
+    "column_name": "created_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 4,
+    "column_name": "verified_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 5,
+    "column_name": "ip_address",
+    "data_type": "inet",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 6,
+    "column_name": "otp_code",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_challenges",
+    "ordinal_position": 7,
+    "column_name": "web_authn_session_data",
+    "data_type": "jsonb",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 2,
+    "column_name": "user_id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 3,
+    "column_name": "friendly_name",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 4,
+    "column_name": "factor_type",
+    "data_type": "USER-DEFINED",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 5,
+    "column_name": "status",
+    "data_type": "USER-DEFINED",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 6,
+    "column_name": "created_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 7,
+    "column_name": "updated_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 8,
+    "column_name": "secret",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 9,
+    "column_name": "phone",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 10,
+    "column_name": "last_challenged_at",
+    "data_type": "timestamp with time zone",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 11,
+    "column_name": "web_authn_credential",
+    "data_type": "jsonb",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 12,
+    "column_name": "web_authn_aaguid",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "mfa_factors",
+    "ordinal_position": 13,
+    "column_name": "last_webauthn_challenge_data",
+    "data_type": "jsonb",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 2,
+    "column_name": "authorization_id",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 3,
+    "column_name": "client_id",
+    "data_type": "uuid",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 4,
+    "column_name": "user_id",
+    "data_type": "uuid",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 5,
+    "column_name": "redirect_uri",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 6,
+    "column_name": "scope",
+    "data_type": "text",
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 7,
+    "column_name": "state",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 8,
+    "column_name": "resource",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 9,
+    "column_name": "code_challenge",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 10,
+    "column_name": "code_challenge_method",
+    "data_type": "USER-DEFINED",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 11,
+    "column_name": "response_type",
+    "data_type": "USER-DEFINED",
+    "is_nullable": "NO",
+    "column_default": "'code'::auth.oauth_response_type"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 12,
+    "column_name": "status",
+    "data_type": "USER-DEFINED",
+    "is_nullable": "NO",
+    "column_default": "'pending'::auth.oauth_authorization_status"
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 13,
+    "column_name": "authorization_code",
+    "data_type": "text",
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_schema": "auth",
+    "table_name": "oauth_authorizations",
+    "ordinal_position": 14,
     "column_name": "created_at",
     "data_type": "timestamp with time zone",
     "is_nullable": "NO",
     "column_default": "now()"
-  },
-  {
-    "table_name": "profiles",
-    "ordinal_position": 5,
-    "column_name": "updated_at",
-    "data_type": "timestamp with time zone",
-    "is_nullable": "NO",
-    "column_default": "now()"
-  },
-  {
-    "table_name": "profiles",
-    "ordinal_position": 6,
-    "column_name": "onboarding_completed",
-    "data_type": "boolean",
-    "is_nullable": "NO",
-    "column_default": "false"
   }
 ]
