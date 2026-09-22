@@ -10,8 +10,8 @@ export default function PatternsSection({
   distribution: ProgressData["distribution"];
 }) {
   return (
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm lg:col-span-7">
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-8">
+      <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6 lg:col-span-7">
         <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-900">Day-of-week performance</h3>
         <div className="space-y-4">
           {patterns.dayOfWeek.map((day) => (
@@ -33,7 +33,7 @@ export default function PatternsSection({
         </div>
       </div>
 
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm lg:col-span-5">
+      <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6 lg:col-span-5">
         <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-900">Completion distribution</h3>
         <div className="space-y-6">
           {distribution.map((item) => (

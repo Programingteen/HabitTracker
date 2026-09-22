@@ -10,9 +10,9 @@ export default function InsightsSection({
   nextFocus: ProgressData["nextFocus"];
 }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-5 sm:space-y-8">
       {nextFocus && (
-        <div className="rounded-2xl border-2 border-emerald-500/10 bg-emerald-50/30 p-6">
+        <div className="rounded-2xl border-2 border-emerald-500/10 bg-emerald-50/30 p-4 sm:p-6">
           <div className="flex items-start gap-4">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-xl text-white shadow-lg shadow-emerald-500/20">
               🎯
@@ -26,8 +26,8 @@ export default function InsightsSection({
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
+        <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6">
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-emerald-700">What's working</h3>
           <ul className="space-y-3">
             {insights.strengths.length > 0 ? insights.strengths.map((s, i) => (
@@ -41,7 +41,7 @@ export default function InsightsSection({
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6">
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-rose-700">Where you're struggling</h3>
           <ul className="space-y-3">
             {insights.weaknesses.length > 0 ? insights.weaknesses.map((w, i) => (

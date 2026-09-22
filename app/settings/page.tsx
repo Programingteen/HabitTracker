@@ -19,9 +19,9 @@ export default async function SettingsPage() {
 
   return (
     <AuthenticatedShell name={settings.name}>
-      <div className="mx-auto max-w-2xl px-6 py-12 lg:py-20">
-        <header className="mb-10">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900">
+      <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 sm:py-12 lg:py-20">
+        <header className="mb-7 sm:mb-10">
+          <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
             Settings
           </h1>
           <p className="mt-2 text-zinc-500">
@@ -29,14 +29,14 @@ export default async function SettingsPage() {
           </p>
         </header>
 
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {/* Account */}
           <section>
             <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">
               Account
             </h2>
 
-            <div className="divide-y divide-zinc-100 rounded-3xl border border-zinc-200 bg-white px-6 shadow-sm">
+            <div className="divide-y divide-zinc-100 rounded-2xl border border-zinc-200 bg-white px-4 shadow-sm sm:rounded-3xl sm:px-6">
               <div className="py-5">
                 <p className="mb-1 text-xs text-zinc-500">Name</p>
                 <EditableName initialName={settings.name} />
@@ -60,7 +60,7 @@ export default async function SettingsPage() {
               Preferences
             </h2>
 
-            <div className="divide-y divide-zinc-100 rounded-3xl border border-zinc-200 bg-white px-6 shadow-sm">
+            <div className="divide-y divide-zinc-100 rounded-2xl border border-zinc-200 bg-white px-4 shadow-sm sm:rounded-3xl sm:px-6">
               <div className="py-5">
                 <PreferenceSelect
                   label="Theme"
@@ -111,7 +111,7 @@ export default async function SettingsPage() {
 
             <Link
               href="/goals"
-              className="flex items-center justify-between rounded-3xl border border-zinc-200 bg-white px-6 py-5 shadow-sm transition hover:border-zinc-300"
+              className="flex min-h-20 items-center justify-between rounded-2xl border border-zinc-200 bg-white px-4 py-5 shadow-sm transition active:border-zinc-300 sm:rounded-3xl sm:px-6"
             >
               <div>
                 <p className="text-[15px] font-medium text-zinc-900">
@@ -132,7 +132,7 @@ export default async function SettingsPage() {
               Data & Privacy
             </h2>
 
-            <div className="rounded-3xl border border-zinc-200 bg-white px-6 py-6 shadow-sm">
+            <div className="rounded-2xl border border-zinc-200 bg-white px-4 py-5 shadow-sm sm:rounded-3xl sm:px-6 sm:py-6">
               <DataActions />
             </div>
           </section>
@@ -143,7 +143,7 @@ export default async function SettingsPage() {
               About
             </h2>
 
-            <div className="divide-y divide-zinc-100 rounded-3xl border border-zinc-200 bg-white px-6 shadow-sm">
+            <div className="divide-y divide-zinc-100 rounded-2xl border border-zinc-200 bg-white px-4 shadow-sm sm:rounded-3xl sm:px-6">
               <div className="flex items-center justify-between py-5">
                 <span className="text-[15px] font-medium text-zinc-900">
                   HabitTracker

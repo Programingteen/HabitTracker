@@ -13,10 +13,10 @@ export default function PerformanceChart({
   const maxTotal = Math.max(...data.map((d) => d.total), 1);
 
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-      <div className="mb-6 flex items-center justify-between">
+    <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6">
+      <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
         <h3 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider">Performance over time</h3>
-        <div className="flex gap-4">
+        <div className="flex gap-3">
             <div className="flex items-center gap-1.5">
                 <div className="size-2 rounded-full bg-emerald-500"></div>
                 <span className="text-xs text-zinc-500">Completed</span>
@@ -28,7 +28,7 @@ export default function PerformanceChart({
         </div>
       </div>
 
-      <div className="relative h-64 w-full">
+      <div className="relative h-52 w-full sm:h-64">
         <div className="absolute inset-0 flex items-end justify-between gap-1 sm:gap-2">
           {data.map((day, i) => (
             <div key={day.date} className="group relative flex h-full flex-1 flex-col justify-end">

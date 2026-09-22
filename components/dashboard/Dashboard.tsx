@@ -26,21 +26,22 @@ export default function Dashboard({ data }: { data: DashboardData }) {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-12">
       <DashboardHeader data={data} />
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
         {/* Main Column */}
-        <div className="lg:col-span-8 space-y-12">
-          <TodayProgress
-            completed={data.todayCompleted}
-            total={data.goals.length}
-          />
-
+        <div className="lg:col-span-8 space-y-8 lg:space-y-12">
+          <div className="lg:hidden"><MomentumCard streak={data.streak} /></div>
           <TodayGoals
             goals={data.goals}
             today={data.today}
             onToggle={handleToggleGoal}
+          />
+
+          <TodayProgress
+            completed={data.todayCompleted}
+            total={data.goals.length}
           />
 
           {error && (
@@ -51,13 +52,13 @@ export default function Dashboard({ data }: { data: DashboardData }) {
         </div>
 
         {/* Sidebar */}
-        <div className="lg:col-span-4 space-y-8">
+        <div className="hidden lg:col-span-4 lg:block lg:space-y-8">
           <MomentumCard streak={data.streak} />
           <WeeklyOverview days={data.weekDays} today={data.today} />
         </div>
       </div>
 
-      <ConsistencyInsight insight={data.insight} />
+      <div className="hidden lg:block"><ConsistencyInsight insight={data.insight} /></div>
     </div>
   );
 }

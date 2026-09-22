@@ -5,16 +5,16 @@ export default function TodayProgress({ completed, total }: { completed: number,
   const remaining = total - completed;
 
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-zinc-900 p-8 text-white shadow-xl shadow-zinc-200/50">
+    <section className="relative overflow-hidden rounded-2xl bg-zinc-900 p-5 text-white shadow-xl shadow-zinc-200/50 sm:rounded-3xl sm:p-8">
       <div className="relative z-10">
         <p className="text-sm font-medium uppercase tracking-widest text-zinc-400">Today&apos;s Progress</p>
 
-        <div className="mt-6 flex items-baseline gap-2">
-          <span className="text-6xl font-bold tracking-tighter">{completed}</span>
-          <span className="text-2xl text-zinc-500 font-medium">/ {total}</span>
+        <div className="mt-4 flex items-baseline gap-2 sm:mt-6">
+          <span className="text-4xl font-bold tracking-tighter sm:text-6xl">{completed}</span>
+          <span className="text-xl font-medium text-zinc-500 sm:text-2xl">/ {total}</span>
         </div>
 
-        <p className="mt-2 text-lg font-medium text-zinc-300">
+        <p className="mt-1 text-base font-medium text-zinc-300 sm:mt-2 sm:text-lg">
           {total === 0
             ? "No goals set for today"
             : remaining === 0
@@ -22,7 +22,7 @@ export default function TodayProgress({ completed, total }: { completed: number,
               : `${remaining} goals remaining`}
         </p>
 
-        <div className="mt-8">
+        <div className="mt-5 sm:mt-8">
           <div className="flex items-center justify-between mb-2 text-sm font-medium">
             <span className="text-zinc-400">Completion</span>
             <span className="text-emerald-400">{progressPercent}%</span>

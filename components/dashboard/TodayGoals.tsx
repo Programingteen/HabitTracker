@@ -1,7 +1,6 @@
 "use client";
 
 import { useTransition } from "react";
-import { toggleTodayGoal } from "@/app/dashboard/actions";
 import Link from "next/link";
 
 interface Goal {
@@ -22,8 +21,8 @@ export default function TodayGoals({
 }) {
   return (
     <section>
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Today&apos;s Goals</h2>
+      <div className="mb-4 flex items-center justify-between sm:mb-6">
+        <h2 className="text-lg font-bold tracking-[0.08em] text-zinc-900 sm:text-2xl sm:tracking-tight">TODAY</h2>
         <Link
           href="/goals"
           className="text-sm font-semibold text-zinc-600 hover:text-emerald-600 transition-colors"
@@ -32,14 +31,14 @@ export default function TodayGoals({
         </Link>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {goals.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-zinc-300 p-12 text-center">
+          <div className="rounded-2xl border border-dashed border-zinc-300 p-8 text-center sm:p-12">
             <p className="font-medium text-zinc-600">No active goals yet</p>
             <p className="mt-1 text-sm text-zinc-400">Add goals to start tracking your habits.</p>
             <Link
               href="/goals"
-              className="mt-6 inline-flex rounded-xl bg-zinc-900 px-6 py-2.5 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+              className="mt-6 inline-flex min-h-12 items-center rounded-xl bg-zinc-900 px-6 py-2.5 text-sm font-semibold text-white transition-colors active:bg-zinc-800"
             >
               Add a goal
             </Link>
@@ -72,22 +71,30 @@ function GoalRow({
 
   return (
     <div
-      className={`group flex items-center gap-4 rounded-2xl border p-4 transition-all duration-200 ${
+      role="button"
+      tabIndex={isPending ? -1 : 0}
+      aria-label={`${goal.completed ? "Mark incomplete" : "Complete"} ${goal.name}`}
+      aria-pressed={goal.completed}
+      onClick={() => !isPending && startTransition(() => onToggle(goal.id, goal.completed))}
+      onKeyDown={(event) => {
+        if (!isPending && (event.key === "Enter" || event.key === " ")) {
+          event.preventDefault();
+          startTransition(() => onToggle(goal.id, goal.completed));
+        }
+      }}
+      className={`group flex min-h-[76px] items-center gap-4 rounded-2xl border p-4 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 ${
         goal.completed
           ? "border-emerald-100 bg-emerald-50/30"
           : "border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-sm"
       }`}
     >
-      <button
-        type="button"
-        disabled={isPending}
-        onClick={() => startTransition(() => onToggle(goal.id, goal.completed))}
+      <span
         className={`flex size-12 shrink-0 items-center justify-center rounded-xl border text-xl transition-all duration-200 ${
           goal.completed
             ? "border-emerald-200 bg-emerald-100 text-emerald-700"
             : "border-zinc-200 bg-zinc-50 text-zinc-400 group-hover:border-emerald-200 group-hover:text-emerald-600"
         } ${isPending ? "scale-95 opacity-50" : "scale-100 opacity-100"}`}
-        aria-label={`${goal.completed ? "Mark incomplete" : "Complete"} ${goal.name}`}
+        aria-hidden="true"
       >
         {isPending ? (
           <div className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -96,10 +103,10 @@ function GoalRow({
         ) : (
           "○"
         )}
-      </button>
+      </span>
 
       <div className="min-w-0 flex-1">
-        <h3 className={`truncate font-semibold tracking-tight ${
+        <h3 className={`line-clamp-2 font-semibold tracking-tight ${
           goal.completed ? "text-emerald-900 line-through opacity-60" : "text-zinc-900"
         }`}>
           {goal.name}

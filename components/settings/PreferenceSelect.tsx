@@ -46,7 +46,7 @@ export default function PreferenceSelect<T extends string | number>({
 
   return (
     <div className="flex flex-col gap-1 py-1">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] font-medium text-zinc-900">
           {label}
         </span>
@@ -55,7 +55,7 @@ export default function PreferenceSelect<T extends string | number>({
           value={value}
           disabled={pending}
           onChange={handleChange}
-          className="rounded-lg border border-zinc-200 bg-white px-2 py-1.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500/20 disabled:opacity-50"
+          className="min-h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500/20 disabled:opacity-50 sm:w-auto"
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>

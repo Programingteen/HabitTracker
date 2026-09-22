@@ -155,13 +155,15 @@
 
 html {
   min-height: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
 
   background: var(--background);
   color: var(--foreground);
@@ -448,6 +450,18 @@ textarea::placeholder {
 @media (min-width: 640px) {
   :root {
     --page-padding: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-padding: 1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
   }
 }
 

@@ -34,7 +34,7 @@ export default async function ProgressPage({
 
   return (
     <AuthenticatedShell name={name}>
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-12">
         <Suspense fallback={<LoadingProgress currentPeriod={currentPeriod} />}>
           <ProgressContent period={currentPeriod} />
         </Suspense>
@@ -47,7 +47,7 @@ async function ProgressContent({ period }: { period: Period }) {
   const data = await getProgressData(period);
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       <ProgressHeader currentPeriod={period} />
 
       <StatsOverview overview={data.overview} />

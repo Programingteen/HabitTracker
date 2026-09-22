@@ -13,8 +13,6 @@ export default function SignupPage() {
     if (!name || !email || password.length < 8) { setMessage("Enter your name, a valid email, and a password of at least 8 characters."); return; }
     setPending(true); const supabase = createClient();
 
-console.log("SIGNUP NAME:", name);
-
 const { data, error } = await supabase.auth.signUp({
   email,
   password,
@@ -29,9 +27,6 @@ const { data, error } = await supabase.auth.signUp({
   },
 });
 
-console.log("SIGNUP USER:", data.user);
-console.log("USER METADATA:", data.user?.user_metadata);
-console.log("SIGNUP ERROR:", error);
     if (error) { setMessage("We couldn’t create your account. Please try again."); setPending(false); return; }
     if (data.session) { router.replace("/"); router.refresh(); return; } router.replace(`/signup/check-email?email=${encodeURIComponent(email)}`);
   }

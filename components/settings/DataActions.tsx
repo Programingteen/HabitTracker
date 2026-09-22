@@ -41,7 +41,7 @@ export default function DataActions() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-[15px] font-medium text-zinc-900">Export my data</p>
           <p className="text-[13px] text-zinc-500">Download a JSON file of your goals and history.</p>
@@ -49,7 +49,7 @@ export default function DataActions() {
         <button
           onClick={handleExport}
           disabled={exporting}
-          className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 disabled:opacity-50"
+          className="min-h-11 rounded-xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 disabled:opacity-50"
         >
           {exporting ? "Exporting..." : "Export data"}
         </button>
@@ -59,7 +59,7 @@ export default function DataActions() {
         {!showConfirm ? (
           <button
             onClick={() => setShowConfirm(true)}
-            className="text-sm font-medium text-red-600 hover:text-red-700"
+            className="min-h-11 px-2 text-sm font-medium text-red-600 hover:text-red-700"
           >
             Delete my account
           </button>
@@ -69,18 +69,18 @@ export default function DataActions() {
             <p className="mt-1 text-[13px] text-red-700">
               This will permanently delete your profile, all goals, and your entire completion history. This action cannot be undone.
             </p>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:flex">
               <button
                 onClick={handleDelete}
                 disabled={deleting}
-                className="rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-50"
+                className="min-h-12 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-50"
               >
                 {deleting ? "Deleting..." : "Yes, delete everything"}
               </button>
               <button
                 onClick={() => setShowConfirm(false)}
                 disabled={deleting}
-                className="rounded-xl bg-white px-4 py-2 text-sm font-medium text-zinc-600 border border-zinc-200 transition hover:bg-zinc-50 disabled:opacity-50"
+                className="min-h-12 rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-50 disabled:opacity-50"
               >
                 Cancel
               </button>
